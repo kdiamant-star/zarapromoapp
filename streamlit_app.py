@@ -4,7 +4,7 @@ import json
 
 st.title("Zara Promo Dependence Predictor (KNN Model)")
 
-ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara_knn_model/invocations"
+ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara-knn-endpoint/invocations"
 TOKEN = "dapi54363c5219dad6c93a76ad902a141b7d"
 
 product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back", "Checkout"])
