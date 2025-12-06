@@ -7,8 +7,7 @@ st.title("Zara Promo Dependence Predictor (KNN Model)")
 ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara_knn_model/invocations"
 TOKEN = "dapi54363c5219dad6c93a76ad902a141b7d"
 
-
-product_position = st.selectbox("Product Position", ["Aisle", "End-cap"])
+product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back", "Checkout"])
 promotion = st.selectbox("Promotion", ["Yes", "No"])
 product_category = st.selectbox("Category", ["Clothing", "Accessories"])
 seasonal = st.selectbox("Seasonal", ["Yes", "No"])
@@ -17,10 +16,11 @@ brand = st.selectbox("Brand", ["Zara"])
 sales_volume = st.number_input("Sales Volume", min_value=0)
 price = st.number_input("Price", min_value=0)
 
-headers = {
-    "Authorization": f"Bearer {TOKEN}",
-    "Content-Type": "application/json"
-}
+if st.button("Predict"):
+    headers = {
+        "Authorization": f"Bearer {TOKEN}",
+        "Content-Type": "application/json"
+    }
 
     payload = {
         "dataframe_records": [{
@@ -35,12 +35,10 @@ headers = {
     }
 
     response = requests.post(ENDPOINT_URL, headers=headers, json=payload)
-
+    
     if response.status_code == 200:
-        try:
-            result = response.json()
-            st.success(f"Predicted Value: {result}")
-        except Exception:
-            st.write(response.text)
+        result = response.json()
+        st.success(f"Prediction: {result}")
     else:
-        st.error(f"Error: {response.text}")
+        st.error(f"Error {response.status_code}: {response.text}")
+
