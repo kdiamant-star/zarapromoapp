@@ -63,6 +63,30 @@ if st.button("Predict"):
     except Exception as e:
         st.error(f"Exception: {str(e)}")
 
+import streamlit as st
+import base64
+
+# --------------------------
+# BACKGROUND IMAGE FUNCTION
+# --------------------------
+def add_bg_from_url(image_url):
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("{image_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# ⭐ CALL THE FUNCTION HERE
+add_bg_from_url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=80")
+
 
 
 
