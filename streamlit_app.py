@@ -4,8 +4,9 @@ import json
 
 st.title("(KNN Model)")
 
-ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara-knn-model/invocations"
-TOKEN = st.secrets["TOKEN"]
+# ✅ Pull secrets from the DATABRICKS section
+TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
+ENDPOINT_URL = st.secrets["DATABRICKS"]["ENDPOINT_URL"]
 
 product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back"])
 product_category = st.selectbox("Category", ["Clothing", "Accessories"])
@@ -21,7 +22,6 @@ if st.button("Predict"):
         "Content-Type": "application/json"
     }
 
-    # ⭐ FIXED INDENTATION + CORRECT SCHEMA
     payload = {
         "dataframe_records": [{
             "product_position": product_position,
@@ -48,5 +48,6 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"Exception: {str(e)}")
+
 
 
