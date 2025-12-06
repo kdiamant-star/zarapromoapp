@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import json
 
-st.title("(KNN Model)")
+st.title("(🔥 Zara Promotion Predictor (KNN Model)🔥)")
 
 ENDPOINT_URL = st.secrets["DATABRICKS"]["ENDPOINT_URL"]
 TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
