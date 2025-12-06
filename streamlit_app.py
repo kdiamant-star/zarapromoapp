@@ -43,10 +43,9 @@ if st.button("Predict"):
         if response.status_code == 200:
             result = response.json()
 
-            # ⭐ NEW: Clean extraction of prediction
+          
             pred_value = result.get("predictions", [None])[0]
 
-            # ⭐ NEW: Beautiful human-readable output
             if pred_value == 1:
                 st.success("🔥 Prediction: PROMOTE THIS ITEM (1)")
             elif pred_value == 0:
@@ -54,8 +53,8 @@ if st.button("Predict"):
             else:
                 st.warning(f"Unexpected prediction format: {result}")
 
-            # Optional: Show raw response for debugging
-            # st.write("Raw output:", result)
+            
+         
 
         else:
             st.error(f"Error {response.status_code}: {response.text}")
@@ -66,9 +65,7 @@ if st.button("Predict"):
 import streamlit as st
 import base64
 
-# --------------------------
-# BACKGROUND IMAGE FUNCTION
-# --------------------------
+
 def add_bg_from_url(image_url):
     st.markdown(
         f"""
@@ -84,8 +81,8 @@ def add_bg_from_url(image_url):
         unsafe_allow_html=True
     )
 
-# ⭐ CALL THE FUNCTION HERE
-add_bg_from_url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=80")
+
+add_bg_from_url("https://wallpapers.com/background/zara-background-q43a5kgakrkmybzd.html")
 
 
 
