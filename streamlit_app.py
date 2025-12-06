@@ -2,6 +2,15 @@ import streamlit as st
 import requests
 import json
 
+st.markdown("""
+    <style>
+    /* Change the main title color */
+    h1 {
+        color: black !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("👗 Zara Item Promotion Decider 👔")
 
 ENDPOINT_URL = st.secrets["DATABRICKS"]["ENDPOINT_URL"]
