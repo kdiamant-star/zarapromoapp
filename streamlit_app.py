@@ -4,8 +4,9 @@ import json
 
 st.title("Zara Promo Dependence Predictor (KNN Model)")
 
-ENDPOINT_URL = "YOUR_ENDPOINT_URL"
-TOKEN = "YOUR_TOKEN"
+ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara-knn-model/invocations
+"
+TOKEN = "dapi54363c5219dad6c93a76ad902a141b7d"
 
 product_position = st.selectbox("Product Position", ["Aisle", "End-cap"])
 promotion = st.selectbox("Promotion", ["Yes", "No"])
@@ -16,11 +17,10 @@ brand = st.selectbox("Brand", ["Zara"])
 sales_volume = st.number_input("Sales Volume", min_value=0)
 price = st.number_input("Price", min_value=0)
 
-if st.button("Predict"):
-    headers = {
-        "Authorization": f"Bearer {TOKEN}",
-        "Content-Type": "application/json"
-    }
+headers = {
+    "Authorization": f"Bearer {TOKEN}",
+    "Content-Type": "application/json"
+}
 
     payload = {
         "dataframe_records": [{
