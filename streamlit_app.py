@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import json
 
-st.title("👔👘Zara Item Promotion Decider🎩👗")
+st.title("👔 Zara Item Promotion Decider 👗")
 
 ENDPOINT_URL = st.secrets["DATABRICKS"]["ENDPOINT_URL"]
 TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
