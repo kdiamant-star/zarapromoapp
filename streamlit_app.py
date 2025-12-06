@@ -82,7 +82,7 @@ def add_bg_from_url(image_url):
     )
 
 
-add_bg_from_url("https://wallpapers.com/background/zara-background-q43a5kgakrkmybzd.html")
+add_bg_from_url("https://wallpapers.com/images/hd/zara-background-q43a5kgakrkmybzd.jpg")
 
 
 
