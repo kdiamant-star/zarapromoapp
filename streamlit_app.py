@@ -4,6 +4,23 @@ import json
 
 st.markdown("""
     <style>
+    /* Make success/error/info boxes fully opaque */
+    .stAlert {
+        background-color: rgba(30, 30, 30, 0.95) !important; 
+        color: white !important;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    /* Fix text color inside alert */
+    .stAlert p {
+        color: white !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
     /* Change the main title color */
     h1 {
         color: black !important;
