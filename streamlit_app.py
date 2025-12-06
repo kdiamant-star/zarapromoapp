@@ -5,7 +5,7 @@ import json
 st.title("(KNN Model)")
 
 ENDPOINT_URL = "https://dbc-a4fffd05-8bae.cloud.databricks.com/serving-endpoints/zara-knn-model/invocations"
-TOKEN = "YOUR_TOKEN_HERE"
+TOKEN = st.secrets["TOKEN"]
 
 product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back"])
 product_category = st.selectbox("Category", ["Clothing", "Accessories"])
