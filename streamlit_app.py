@@ -4,9 +4,8 @@ import json
 
 st.title("(KNN Model)")
 
-# ✅ Pull secrets from the DATABRICKS section
-TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
 ENDPOINT_URL = st.secrets["DATABRICKS"]["ENDPOINT_URL"]
+TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
 
 product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back"])
 product_category = st.selectbox("Category", ["Clothing", "Accessories"])
@@ -42,12 +41,28 @@ if st.button("Predict"):
         st.write("Status:", response.status_code)
 
         if response.status_code == 200:
-            st.success(f"Prediction: {response.json()}")
+            result = response.json()
+
+            # ⭐ NEW: Clean extraction of prediction
+            pred_value = result.get("predictions", [None])[0]
+
+            # ⭐ NEW: Beautiful human-readable output
+            if pred_value == 1:
+                st.success("🔥 Prediction: PROMOTE THIS ITEM (1)")
+            elif pred_value == 0:
+                st.info("ℹ️ Prediction: DO NOT PROMOTE (0)")
+            else:
+                st.warning(f"Unexpected prediction format: {result}")
+
+            # Optional: Show raw response for debugging
+            # st.write("Raw output:", result)
+
         else:
             st.error(f"Error {response.status_code}: {response.text}")
 
     except Exception as e:
         st.error(f"Exception: {str(e)}")
+
 
 
 
