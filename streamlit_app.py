@@ -22,17 +22,20 @@ if st.button("Predict"):
         "Content-Type": "application/json"
     }
 
-    payload = {
-        "dataframe_records": [{
-            "product_position": product_position,
-            "promotion": promotion,
-            "product_category": product_category,
-            "seasonal": seasonal,
-            "brand": brand,
-            "sales_volume": sales_volume,
-            "price": price
-        }]
-    }
+ payload = {
+    "dataframe_records": [{
+        "product_position": product_position,
+        "product_category": product_category,
+        "seasonal": seasonal,
+        "sales_volume": sales_volume,
+        "brand": brand,
+        "name": "Unknown",
+        "description": "None",
+        "price": price,
+        "currency": "USD",
+        "section": "None"
+    }]
+}
 
     response = requests.post(ENDPOINT_URL, headers=headers, json=payload)
     
