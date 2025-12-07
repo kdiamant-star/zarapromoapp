@@ -36,6 +36,7 @@ TOKEN = st.secrets["DATABRICKS"]["TOKEN"]
 product_position = st.selectbox("Product Position", ["Aisle", "Front", "Back"])
 product_category = st.selectbox("Category", ["Clothing", "Accessories"])
 seasonal = st.selectbox("Seasonal", ["Yes", "No"])
+brand = st.selectbox("Brand", ["Zara"])
 sales_volume = st.number_input("Sales Volume", min_value=0)
 price = st.number_input("Price", min_value=0)
 
